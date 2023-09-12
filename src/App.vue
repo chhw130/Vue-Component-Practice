@@ -11,6 +11,7 @@
         :email="friend.email"
         :phone="friend.phone"
         :favorite="friend.favorite"
+        @toggle-favorite="toggleFavoriteStatusHandler"
       />
     </ul>
   </section>
@@ -37,6 +38,17 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    toggleFavoriteStatusHandler(friendName) {
+      // const identifyFriend = this.friends.find((friend) => {
+      //   console.log(friend.name, friendName);
+      //   return friend.name === friendName;
+      // });
+
+      console.log(friendName);
+      // identifyFriend.favorite = !identifyFriend.favorite;
+    },
   },
 };
 </script>

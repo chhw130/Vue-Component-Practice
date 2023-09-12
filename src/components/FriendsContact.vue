@@ -38,13 +38,12 @@ export default {
   data() {
     return {
       isToggle: false,
-      isFavorite: this.favorite,
     };
   },
 
   computed: {
     favoriteCompute() {
-      return this.isFavorite ? "(Favorite)" : null;
+      return this.favorite ? "(Favorite)" : null;
     },
   },
 
@@ -53,7 +52,7 @@ export default {
       this.isToggle = !this.isToggle;
     },
     toggleFavoriteHandler() {
-      this.isFavorite = !this.isFavorite;
+      this.$emit("toggle-favorite", this.name);
     },
   },
 };
