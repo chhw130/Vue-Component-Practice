@@ -4,7 +4,14 @@
       <h1>My Friends</h1>
     </header>
     <ul>
-      <friends-contact></friends-contact>
+      <friends-contact
+        v-for="friend in friends"
+        :key="friend.id"
+        :name="friend.name"
+        :email="friend.email"
+        :phone="friend.phone"
+        :favorite="friend.favorite"
+      />
     </ul>
   </section>
 </template>
@@ -19,12 +26,14 @@ export default {
           name: "Manuel Lorenz",
           email: "manuel@gmail.com",
           phone: "123-2134-3251",
+          favorite: false,
         },
         {
           id: "juli",
           name: "Juli Jones",
           email: "Juli@gmail.com",
           phone: "123-2744-3251",
+          favorite: true,
         },
       ],
     };
@@ -32,7 +41,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 * {
   box-sizing: border-box;
 }
@@ -63,7 +72,7 @@ header {
   list-style: none;
 }
 
-#app li {
+li {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   margin: 1rem auto;
   border-radius: 10px;

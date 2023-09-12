@@ -1,31 +1,59 @@
 <template>
   <li>
-    <h2>{{ friends.name }}</h2>
+    <h2>
+      {{ name }}
+      {{ favoriteCompute }}
+    </h2>
     <button @click="toggleHandler()">Show Details</button>
+    <button @click="toggleFavoriteHandler()">Toggle Favorite</button>
   </li>
   <ul v-if="isToggle">
-    <li><strong>Phone :</strong> {{ friends.phone }}</li>
-    <li><strong>Email :</strong> {{ friends.email }}</li>
+    <li><strong>Phone :</strong> {{ phone }}</li>
+    <li><strong>Email :</strong> {{ email }}</li>
   </ul>
 </template>
 
 <script>
 export default {
+  props: {
+    name: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
+    phone: {
+      type: String,
+      required: true,
+    },
+    favorite: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+  },
+
   data() {
     return {
       isToggle: false,
-      friends: {
-        id: "manuel",
-        name: "Manuel Lorenz",
-        email: "manuel@gmail.com",
-        phone: "123-2134-3251",
-      },
+      isFavorite: this.favorite,
     };
+  },
+
+  computed: {
+    favoriteCompute() {
+      return this.isFavorite ? "(Favorite)" : null;
+    },
   },
 
   methods: {
     toggleHandler() {
       this.isToggle = !this.isToggle;
+    },
+    toggleFavoriteHandler() {
+      this.isFavorite = !this.isFavorite;
     },
   },
 };
