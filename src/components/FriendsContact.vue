@@ -4,8 +4,8 @@
       {{ name }}
       {{ favoriteCompute }}
     </h2>
-    <button @click="toggleHandler()">Show Details</button>
-    <button @click="toggleFavoriteHandler()">Toggle Favorite</button>
+    <button @click="toggleHandler">Show Details</button>
+    <button @click="toggleFavoriteHandler">Toggle Favorite</button>
   </li>
   <ul v-if="isToggle">
     <li><strong>Phone :</strong> {{ phone }}</li>
