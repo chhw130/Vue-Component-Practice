@@ -15,6 +15,7 @@
 
 <script>
 export default {
+  emits: ["toggle-favorite"],
   props: {
     name: {
       type: String,

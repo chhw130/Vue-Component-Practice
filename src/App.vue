@@ -41,13 +41,11 @@ export default {
   },
   methods: {
     toggleFavoriteStatusHandler(friendName) {
-      // const identifyFriend = this.friends.find((friend) => {
-      //   console.log(friend.name, friendName);
-      //   return friend.name === friendName;
-      // });
+      const identifyFriend = this.friends.find(
+        (friend) => friend.name === friendName
+      );
 
-      console.log(friendName);
-      // identifyFriend.favorite = !identifyFriend.favorite;
+      identifyFriend.favorite = !identifyFriend.favorite;
     },
   },
 };
