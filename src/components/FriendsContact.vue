@@ -6,6 +6,7 @@
     </h2>
     <button @click="toggleHandler">Show Details</button>
     <button @click="toggleFavoriteHandler">Toggle Favorite</button>
+    <button @click="$emit('delete-friend', name)">Delete Friend</button>
   </li>
   <ul v-if="isToggle">
     <li><strong>Phone :</strong> {{ phone }}</li>
@@ -15,7 +16,7 @@
 
 <script>
 export default {
-  emits: ["toggle-favorite"],
+  emits: ["toggle-favorite", "delete-friend"],
   props: {
     name: {
       type: String,
@@ -54,6 +55,9 @@ export default {
     },
     toggleFavoriteHandler() {
       this.$emit("toggle-favorite", this.name);
+    },
+    deleteFriendHandler() {
+      this.$emit("delete-friend");
     },
   },
 };

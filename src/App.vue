@@ -13,6 +13,7 @@
         :phone="friend.phone"
         :favorite="friend.favorite"
         @toggle-favorite="toggleFavoriteStatusHandler"
+        @delete-friend="deleteFriendHandler"
       />
     </ul>
   </section>
@@ -59,6 +60,11 @@ export default {
         isFavorite: false,
       };
       this.friends.push(newFriendData);
+    },
+    deleteFriendHandler(friendName) {
+      this.friends = this.friends.filter(
+        (friend) => friend.name !== friendName
+      );
     },
   },
 };
