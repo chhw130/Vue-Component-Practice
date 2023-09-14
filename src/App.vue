@@ -51,7 +51,14 @@ export default {
       identifyFriend.favorite = !identifyFriend.favorite;
     },
     addContact(enteredData) {
-      console.log(enteredData);
+      const newFriendData = {
+        id: new Date().toISOString(),
+        name: enteredData.enteredName,
+        phone: enteredData.enteredPhone,
+        email: enteredData.enteredEmail,
+        isFavorite: false,
+      };
+      this.friends.push(newFriendData);
     },
   },
 };
