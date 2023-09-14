@@ -3,6 +3,7 @@
     <header>
       <h1>My Friends</h1>
     </header>
+    <new-friend @add-contact="addContact"></new-friend>
     <ul>
       <friends-contact
         v-for="friend in friends"
@@ -18,7 +19,9 @@
 </template>
 
 <script>
+import NewFriend from "./components/NewFriend.vue";
 export default {
+  components: { NewFriend },
   data() {
     return {
       friends: [
@@ -46,6 +49,9 @@ export default {
       );
 
       identifyFriend.favorite = !identifyFriend.favorite;
+    },
+    addContact(enteredData) {
+      console.log(enteredData);
     },
   },
 };
@@ -82,7 +88,8 @@ header {
   list-style: none;
 }
 
-li {
+li,
+form {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   margin: 1rem auto;
   border-radius: 10px;
